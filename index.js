@@ -6,24 +6,25 @@ function randomValueFromArray(array) {
   return array[randomNo];
 }
 
-setInterval(() => {
-  const randomChoice = randomValueFromArray(images);
-  imgElem.src = `images/${randomChoice}.jpg`;
-}, 2000);
+// setInterval(() => {
+//   const randomChoice = randomValueFromArray(images);
+//   imgElem.src = `images/${randomChoice}.jpg`;
+// }, 2000);
 
 // Register service worker to control making site work offline
 
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker
-    .register('/pwa-examples/a2hs/sw.js')
-    .then(() => { console.log('Service Worker Registered'); });
-}
+// if ('serviceWorker' in navigator) {
+//   navigator.serviceWorker.register('/sw.js').then(() => {
+//     console.log('Service Worker Registered');
+//   });
+// }
 
 // Code to handle install prompt on desktop
 
 let deferredPrompt;
 const addBtn = document.querySelector('.add-button');
-addBtn.style.display = 'none';
+console.log(addBtn);
+// addBtn.style.display = 'none';
 
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
@@ -35,7 +36,7 @@ window.addEventListener('beforeinstallprompt', (e) => {
 
   addBtn.addEventListener('click', () => {
     // hide our user interface that shows our A2HS button
-    addBtn.style.display = 'none';
+    // addBtn.style.display = 'none';
     // Show the prompt
     deferredPrompt.prompt();
     // Wait for the user to respond to the prompt
